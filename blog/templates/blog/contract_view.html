@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<table id="t01">
+    <tr>
+      <th>Contract Number</th>
+      <th>Producer</th>
+      <th>Marketer</th>
+      <th>Contract Type</th>
+      <th>Status</th>
+    </tr>
+    {% for contract in contracts %}
+    <tr>
+      <td>{{ contract.contract_id }}</td>
+      <td>{{ contract.producer }}</td>
+      <td>{{ contract.marketer }}</td>
+      <td>{{ contract.contract_type }}</td>
+      <td>{{ contract.status }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  Permission Denied
+  {% endif %}
+{% endblock %}

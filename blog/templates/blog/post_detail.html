@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=nomination.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <table id="t01">
+                <tr>
+                    <th>Contract Number</th>
+                    <th>Day</th>
+                    <th>Value</th>
+                    <th>Downstream Contract</th>
+                    <th>Downstream BA</th>
+                </tr>
+                <tr>
+                    <td>{{ nomination.contract_id }}</td>
+                    <td>{{ nomination.day_nom }}</td>
+                    <td>{{ nomination.day_nom_value }}</td>
+                    <td>{{ nomination.downstream_contract }}</td>
+                    <td>{{ nomination.downstream_ba }}</td>
+                </tr>
+          </table>
+        {% endif %}
+{% endblock %}
